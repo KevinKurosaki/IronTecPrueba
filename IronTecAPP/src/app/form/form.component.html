@@ -2,33 +2,33 @@
     <mat-vertical-stepper [linear]="true" style="margin-left: 35%">
         <mat-step [stepControl]="firstFormGroup">
             <form [formGroup]="firstFormGroup" novalidate (ngSubmit)="getUsrName()">
-                <ng-template matStepLabel>Fill out User name</ng-template>
+                <ng-template matStepLabel>Nombre del usuario</ng-template>
                 <mat-form-field>
-                    <input matInput placeholder="User name" formControlName="usrName" required>
+                    <input matInput placeholder="Nombre usuario" formControlName="usrName" required>
                 </mat-form-field>
                 <div>
-                    <button mat-button matStepperNext>Next</button>
+                    <button mat-button matStepperNext>Siguiente</button>
                 </div>
             </form>
         </mat-step>
         <mat-step [stepControl]="secondFormGroup">
             <form [formGroup]="secondFormGroup" novalidate (ngSubmit)="getRepoName()">
-                <ng-template matStepLabel>Fill out Repository Name</ng-template>
+                <ng-template matStepLabel>Nombre del repository</ng-template>
                 <mat-form-field>
-                    <input matInput placeholder="Repository Name" formControlName="repoName" required>
+                    <input matInput placeholder="Nombre repositorio" formControlName="repoName" required>
                 </mat-form-field>
                 <div>
-                    <button mat-button matStepperPrevious>Back</button>
-                    <button mat-button matStepperNext>Next</button>
+                    <button mat-button matStepperPrevious>Atras</button>
+                    <button mat-button matStepperNext>Siguiente</button>
                 </div>
             </form>
         </mat-step>
         <mat-step>
-            <ng-template matStepLabel>Done</ng-template>
-            You are now done.
+            <ng-template matStepLabel>Confirmar</ng-template>
+            Has terminado.
             <div style="margin-top: 20px;">
-                <button mat-button matStepperPrevious>Back</button>
-                <button mat-button mat-raised-button (click)="submitData()">Submit</button>
+                <button mat-button matStepperPrevious>Atras</button>
+                <button mat-button mat-raised-button (click)="submitData()">Enviar</button>
             </div>
         </mat-step>
     </mat-vertical-stepper>
