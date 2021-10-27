@@ -8,5 +8,5 @@ if (environment.production) {
   enableProdMode();
 }
 
-platformBrowserDynamic().bootstrapModule(AppModule)
-  .catch(err => console.error(err));
+platformBrowserDynamic().bootstrapModule(AppModule, { preserveWhitespaces: false});
+// platformBrowserDynamic().bootstrapModule(AppModule, { preserveWhitespaces: false, ngZone: 'noop'}).then( ref => {});
