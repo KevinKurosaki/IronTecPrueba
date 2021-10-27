@@ -28,17 +28,11 @@ export interface dataInterface {
 })
 
 export class TableComponent implements OnInit, AfterViewInit, OnDestroy {
-    /** Collection of subscribed variables */
     subscriptions: Subscription[] = [];
-    /** data container */
     data = [];
-    // counter variable
     counter: number;
-    // sort assign variable
     sortBool: boolean = false;
-    // filter assign variable
     filterBool: boolean = false;
-    // page no
     pageNo: number = 1;
     // all issue count
     allPageNo: number;
@@ -47,15 +41,10 @@ export class TableComponent implements OnInit, AfterViewInit, OnDestroy {
     searchHeaders = [{ "key" : "Issue Type", "value" : "state" },
         { "key" : "Title", "value" : "title" },
         { "key" : "User", "value" : "user.login" }];
-    // sort assign for ascending or descending
     sortOrder: string = this.resHeaders[0];
-    // search string
     searchBy: string;
-    // 404 error
     dataNotFound: boolean = false;
-    // page no
     page: number = 1;
-    // item per page
     itemsPerPage: number = 10;
 
     constructor (private appService: AppService, private router: Router) {
@@ -64,14 +53,6 @@ export class TableComponent implements OnInit, AfterViewInit, OnDestroy {
     ngOnInit () {
         this.data = this.appService.data;
         this.allPageNo = Math.floor(this.appService.data[0].number / 30);
-
-        // if (this.appService.dataNotFound !== '') {
-        //     this.data = this.appService.data;
-        //     this.allPageNo = Math.floor(this.appService.data[0].number / 30);
-        // } else {
-        //     this.data = [];
-        //     this.dataNotFound = "Data not found please check organization or reposiratory name";
-        // }
     }
 
     ngAfterViewInit () {
@@ -92,7 +73,6 @@ export class TableComponent implements OnInit, AfterViewInit, OnDestroy {
                 }
 
                 if (this.appService.data[0].previousEnabled == true) {
-                    // this.data = this.appService.data.slice(Math.max(this.appService.data.length, this.appService.data.length - 30));
                     this.data = this.appService.data.slice(30);
                 }
 

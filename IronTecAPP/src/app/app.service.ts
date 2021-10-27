@@ -12,38 +12,27 @@ export class AppService {
     constructor (private http: HttpClient, private router: Router) {
     }
 
-    /**
-     * Observer for fetch github issue data API call.
-     * It provides observable to notify about getting data
-     */
+    //Observer for fetch github issue data API call.
     subjectData = new Subject<number>();
-    /**
-     * Notify changes for fetchData API call.
-     * Listeners themselves will have to check for the incoming documents from appService.
-     */
+
+    //Notify changes for fetchData API call.
     data$ = this.subjectData.asObservable();
-    /** Notifier code for any change detected by any subect */
+    // Notifier code for any change detected  and rejected by any subect
     readonly successNotifier: number = 200;
-    /** Notifier code for any change rejected by any subject */
     readonly failureNotifier: number = 404;
-    /** Observer for loading notifier */
+    //Observer for loading notifier
     private subjectIsDataLoading = new Subject<boolean>();
-    /**
-     * Notify changes for a loading notifier.
-     * The observable object notifies its existing listeners about loading notifier.
-     * It passes boolean value of isDataLoading in observable parameters.
-     */
+    
+    //Notify changes for a loading notifier.
+    
     isDataLoading$ = this.subjectIsDataLoading.asObservable();
-    /** A status variable to keep track of notifiers triggered by external events. */
     private isExternDataLoading: boolean = false;
-    /** data container */
     data = [];
-    /** route changed */
+    // route changed
     routeChange: boolean = false;
     dataNotFound: string = '';
 
     /**
-     * Manipulate the global loading notifier based on the existing local loading notifier
      * @param {boolean} isDataLoading Notifier value to set
      */
     updateGlobalNotifier(isDataLoading: boolean): void {
@@ -56,8 +45,6 @@ export class AppService {
      * @param {any} payload of user data
      */
     fetchData (payload: any): void {
-        /* set up header parameters
-         * include access token stored in localStorage */
         // notify other components
         this.subjectIsDataLoading.next(true);
         // make http request
