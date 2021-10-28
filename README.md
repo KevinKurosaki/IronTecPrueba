@@ -33,9 +33,13 @@ El botón **+** nos devuelve a la página principal.
  Para el desarrollo de la aplicación he usado información y ayuda de las siguientes fuentes:
 
  Github API [Github API](https://docs.github.com/es/rest/reference/repos)
+
  Documentación de Angular (HttpClientModle, Observables, etc) [Documentación Angular](https://angular.io/api/common/http/HttpClientModule)
+
  Angular Material [Documentación Angular Material](https://material.angular.io/components/button/overview)
+
  Mención especial para la documentación sobre Routing [Angular Routing](https://angular.io/guide/router)
+ 
  A pesar de no haberlo utilizado realicé algunos intentos con Nrgx [Ngrx Academia Binaria](https://academia-binaria.com/el-patron-redux-con-ngrx-en-angular/)
 
  Además de estas se ha utilizado diferentes foros para la solución de errores o cuestiones surgidas durante el proceso. Entre alguno de ellos Stackoverflow [StackOverflow](https://stackoverflow.com/questions/tagged/angular)
